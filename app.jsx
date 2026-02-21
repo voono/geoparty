@@ -66,74 +66,7 @@ const playSound = (type) => {
   }
 };
 
-const CATEGORIES = [
-  {
-    id: 'world_history',
-    title: 'تاریخ جهان',
-    questions: [
-      { id: 'wh1', value: 100, q: 'تمدن باستانی «مایا» بیشتر در کدام منطقه جغرافیایی امروزی تمرکز داشت؟', a: 'آمریکای مرکزی', options: ['آمریکای جنوبی', 'آمریکای مرکزی', 'آفریقای شمالی', 'آسیای شرقی'] },
-      { id: 'wh2', value: 200, q: 'نام پادشاهی که در نبرد واترلو از ائتلاف هفتم شکست خورد و تبعید شد؟', a: 'ناپلئون بناپارت', options: ['لویی شانزدهم', 'ناپلئون بناپارت', 'پتر کبیر', 'شارلمانی'] },
-      { id: 'wh3', value: 300, q: 'طولانی‌ترین جنگ تاریخ بین کدام دو کشور رخ داد که ۳۳۵ سال طول کشید اما هیچ کشته‌ای نداشت؟', a: 'هلند و جزایر سیلی', options: ['انگلستان و فرانسه', 'هلند و جزایر سیلی', 'اسپانیا و پرتغال', 'چین و ژاپن'] },
-      { id: 'wh4', value: 400, q: 'معاهده مشهور «وستفالی» که به جنگ‌های خونین سی‌ساله در اروپا پایان داد در چه سالی امضا شد؟', a: '۱۶۴۸', options: ['۱۴۹۲', '۱۶۴۸', '۱۷۸۹', '۱۸۱۵'] },
-      { id: 'wh5', value: 500, q: 'نام آخرین امپراتور امپراتوری بیزانس (روم شرقی) که در جریان سقوط قسطنطنیه شمشیر به دست کشته شد؟', a: 'کنستانتین یازدهم', options: ['ژوستینیان یکم', 'کنستانتین یازدهم', 'تئودوسیوس دوم', 'باسیل دوم'] },
-    ]
-  },
-  {
-    id: 'advanced_science',
-    title: 'علوم و نجوم',
-    questions: [
-      { id: 'as1', value: 100, q: 'کدام سیاره در منظومه شمسی کوتاه‌ترین روز (حدود ۱۰ ساعت) را دارد؟', a: 'مشتری', options: ['عطارد', 'مریخ', 'مشتری', 'زحل'] },
-      { id: 'as2', value: 200, q: 'غده پینه‌آل (صنوبری) در مغز انسان وظیفه ترشح کدام هورمون خواب‌آور را بر عهده دارد؟', a: 'ملاتونین', options: ['سروتونین', 'دوپامین', 'ملاتونین', 'کورتیزول'] },
-      { id: 'as3', value: 300, q: 'نام ثابت فیزیکی که رابطه بین انرژی یک فوتون و فرکانس موج آن را تعیین می‌کند؟', a: 'ثابت پلانک', options: ['ثابت بولتزمن', 'ثابت آووگادرو', 'ثابت هابل', 'ثابت پلانک'] },
-      { id: 'as4', value: 400, q: 'در مدل استاندارد فیزیک ذرات بنیادی، کدام ذره حامل "نیروی هسته‌ای قوی" است؟', a: 'گلوئون', options: ['فوتون', 'بوزون دابلیو', 'گلوئون', 'گراویتون'] },
-      { id: 'as5', value: 500, q: 'اولین تپ‌اختر (Pulsar) در سال ۱۹۶۷ توسط کدام اخترفیزیکدان زن کشف شد؟', a: 'جوسلین بل بورنل', options: ['ماری کوری', 'ورا روبین', 'جوسلین بل بورنل', 'سالی راید'] },
-    ]
-  },
-  {
-    id: 'world_lit',
-    title: 'ادبیات و فلسفه',
-    questions: [
-      { id: 'wl1', value: 100, q: 'مفهوم «ابرانسان» (Übermensch) اولین بار در کدام اثر فریدریش نیچه مطرح شد؟', a: 'چنین گفت زرتشت', options: ['فراسوی نیک و بد', 'تبارشناسی اخلاق', 'چنین گفت زرتشت', 'غروب بت‌ها'] },
-      { id: 'wl2', value: 200, q: 'رمان «اولیس» اثر شاهکار جیمز جویس، داستان وقایع چه شهری را در یک روز روایت می‌کند؟', a: 'دوبلین', options: ['لندن', 'پاریس', 'دوبلین', 'ادینبرو'] },
-      { id: 'wl3', value: 300, q: 'کدام نمایشنامه‌نویس یونان باستان به عنوان «پدر تراژدی» شناخته می‌شود و اثر «ایرانیان» متعلق به اوست؟', a: 'آیسخولوس (اشیل)', options: ['سوفوکل', 'اوریپید', 'آریستوفان', 'آیسخولوس (اشیل)'] },
-      { id: 'wl4', value: 400, q: 'سیاست‌مداری که در سال ۱۹۵۳ برنده جایزه «نوبل ادبیات» شد کیست؟', a: 'وینستون چرچیل', options: ['تئودور روزولت', 'ژان پل سارتر', 'شارل دوگل', 'وینستون چرچیل'] },
-      { id: 'wl5', value: 500, q: 'در رمان «۱۹۸۴» اثر جورج اورول، نام اتاقی که در آن افراد با بزرگترین ترس خود روبرو می‌شوند چیست؟', a: 'اتاق ۱۰۱', options: ['اتاق ۲۳۷', 'اتاق ۱۰۱', 'بخش ۴۲', 'سلول صفر'] },
-    ]
-  },
-  {
-    id: 'hard_geo',
-    title: 'جغرافیای پیشرفته',
-    questions: [
-      { id: 'hg1', value: 100, q: 'عمیق‌ترین نقطه شناخته شده در تمام اقیانوس‌های جهان چه نام دارد؟', a: 'درازگودال ماریانا', options: ['درازگودال پورتوریکو', 'درازگودال ماریانا', 'گودال تونگا', 'گودال جاوه'] },
-      { id: 'hg2', value: 200, q: 'کدام کشور آفریقایی به طور کامل در دل یک کشور دیگر (آفریقای جنوبی) محصور شده است؟', a: 'لسوتو', options: ['اسواتینی', 'بوتسوانا', 'نامیبیا', 'لسوتو'] },
-      { id: 'hg3', value: 300, q: 'پایتخت کشوری که کوه مشهور «کلیمانجارو» در آن قرار دارد چیست؟', a: 'دودوما (تانزانیا)', options: ['نایروبی', 'دودوما (تانزانیا)', 'کامپالا', 'کیگالی'] },
-      { id: 'hg4', value: 400, q: 'تنگه «باس» (Bass Strait) کدام جزیره را از سرزمین اصلی استرالیا جدا می‌کند؟', a: 'تاسمانی', options: ['نیوزیلند', 'گینه نو', 'تاسمانی', 'کالدونیای جدید'] },
-      { id: 'hg5', value: 500, q: 'دریاچه «وُستوک» که بزرگترین دریاچه کشف‌شده در زیر لایه‌های یخی است، در کدام قاره قرار دارد؟', a: 'جنوبگان (قطب جنوب)', options: ['آمریکای شمالی', 'آسیا', 'اروپا', 'جنوبگان (قطب جنوب)'] },
-    ]
-  },
-  {
-    id: 'arts_music',
-    title: 'هنر و موسیقی',
-    questions: [
-      { id: 'am1', value: 100, q: 'کدام آهنگساز کلاسیک در دهه سوم زندگی‌اش شنوایی خود را از دست داد اما شاهکارهایی خلق کرد؟', a: 'لودویگ فان بتهوون', options: ['یوهان سباستیان باخ', 'ولفگانگ آمادئوس موتسارت', 'لودویگ فان بتهوون', 'فردریک شوپن'] },
-      { id: 'am2', value: 200, q: 'کدام جنبش هنری در اوایل قرن بیستم با هنرمندانی چون دالی و ماگریت و تمرکز بر ضمیر ناخودآگاه شکل گرفت؟', a: 'سوررئالیسم', options: ['امپرسیونیسم', 'کوبیسم', 'دادائیسم', 'سوررئالیسم'] },
-      { id: 'am3', value: 300, q: 'مجسمه مرمرین «دیوید» (داوود) که از شاهکارهای رنسانس در فلورانس است، اثر کیست؟', a: 'میکل‌آنژ', options: ['لئوناردو داوینچی', 'میکل‌آنژ', 'دوناتلو', 'رافائل'] },
-      { id: 'am4', value: 400, q: 'اپرای عظیم «حلقه نیبلونگ» که اجرای کامل چهار بخش آن حدود ۱۵ ساعت طول می‌کشد، اثر کیست؟', a: 'ریشارد واگنر', options: ['جوزپه وردی', 'ریشارد واگنر', 'جاکومو پوچینی', 'پیوتر ایلیچ چایکوفسکی'] },
-      { id: 'am5', value: 500, q: 'تکنیک نقاشی «کُیاروسکورو» (Chiaroscuro) که توسط کاراواجو به اوج رسید به چه معناست؟', a: 'تضاد شدید نور و سایه', options: ['نقاشی با نقطه', 'تضاد شدید نور و سایه', 'ترکیب رنگ‌های مکمل', 'خراشیدن رنگ از روی بوم'] },
-    ]
-  },
-  {
-    id: 'trivia_enigmas',
-    title: 'معماها و دانستنی‌ها',
-    questions: [
-      { id: 'te1', value: 100, q: 'سخت‌ترین ماده طبیعی شناخته شده در کره زمین که از کربن خالص تشکیل شده چیست؟', a: 'الماس', options: ['گرافن', 'تیتانیوم', 'الماس', 'کوارتز'] },
-      { id: 'te2', value: 200, q: 'تنها حرفی از الفبای انگلیسی که در نام هیچ‌یک از ۵۰ ایالت آمریکا وجود ندارد چیست؟', a: 'Q', options: ['X', 'Z', 'J', 'Q'] },
-      { id: 'te3', value: 300, q: 'در روان‌شناسی، «سندرم استاندال» در چه مواقعی به افراد دست می‌دهد و باعث تپش قلب و سرگیجه می‌شود؟', a: 'مواجهه با آثار هنری بسیار زیبا', options: ['ترس از ارتفاع', 'مواجهه با آثار هنری بسیار زیبا', 'قرار گرفتن در تاریکی مطلق', 'شنیدن صداهای خاص'] },
-      { id: 'te4', value: 400, q: 'در نظریه بازی‌ها، کدام معمای مشهور نشان می‌دهد چرا دو نفر ممکن است حتی به نفعشان باشد همکاری نکنند؟', a: 'معمای زندانی', options: ['پارادوکس مونتی هال', 'معمای زندانی', 'بازی اولتیماتوم', 'تراژدی منابع مشترک'] },
-      { id: 'te5', value: 500, q: 'زبانی فراساخته که با داشتن تنها حدود ۱۲۰ تا ۱۳۷ کلمه، یکی از کوچک‌ترین زبان‌های جهان است؟', a: 'توکی پونا', options: ['اسپرانتو', 'کلینگان', 'توکی پونا', 'اینترلینگوا'] },
-    ]
-  }
-];
+import { ALL_CATEGORIES } from './questions.js';
 
 const App = () => {
   // Game States: 'setup', 'playing', 'gameover'
@@ -142,8 +75,10 @@ const App = () => {
   // Setup State
   const [playerCount, setPlayerCount] = useState(4);
   const [playerNames, setPlayerNames] = useState(Array(6).fill(''));
+  const [selectedCategories, setSelectedCategories] = useState(ALL_CATEGORIES.slice(0, 6).map(c => c.id));
 
   // Main Game State
+  const [gameCategories, setGameCategories] = useState([]);
   const [players, setPlayers] = useState([]);
   const [dailyDoubles, setDailyDoubles] = useState([]);
   const [mandatoryQuestions, setMandatoryQuestions] = useState([]);
@@ -166,6 +101,11 @@ const App = () => {
 
   // Initialize Game
   const startGame = () => {
+    if (selectedCategories.length < 1) {
+      alert('لطفاً حداقل ۱ دسته سوال انتخاب کنید.');
+      return;
+    }
+
     initAudio(); // Initialize Audio Context on user interaction
     const newPlayers = Array.from({ length: playerCount }).map((_, i) => ({
       id: i + 1,
@@ -175,18 +115,45 @@ const App = () => {
     }));
     setPlayers(newPlayers);
 
+    // Build the categories based on selected
+    const chosenCategories = ALL_CATEGORIES.filter(c => selectedCategories.includes(c.id)).map(cat => {
+      const q100 = cat.questions.filter(q => q.value === 100);
+      const q200 = cat.questions.filter(q => q.value === 200);
+      const q300 = cat.questions.filter(q => q.value === 300);
+      const q400 = cat.questions.filter(q => q.value === 400);
+      const q500 = cat.questions.filter(q => q.value === 500);
+
+      const pickRandom = (arr) => arr[Math.floor(Math.random() * arr.length)] || arr[0];
+
+      return {
+        ...cat,
+        questions: [
+          pickRandom(q100),
+          pickRandom(q200),
+          pickRandom(q300),
+          pickRandom(q400),
+          pickRandom(q500)
+        ].filter(Boolean)
+      };
+    });
+
+    setGameCategories(chosenCategories);
+
     const dds = [];
     const mqs = [];
 
-    CATEGORIES.forEach(cat => {
+    chosenCategories.forEach(cat => {
       const qIds = cat.questions.map(q => q.id);
+      if (qIds.length === 0) return;
 
       const ddIndex = Math.floor(Math.random() * qIds.length);
       dds.push(qIds[ddIndex]);
 
       const remainingIds = qIds.filter((_, i) => i !== ddIndex);
-      const mqIndex = Math.floor(Math.random() * remainingIds.length);
-      mqs.push(remainingIds[mqIndex]);
+      if (remainingIds.length > 0) {
+        const mqIndex = Math.floor(Math.random() * remainingIds.length);
+        mqs.push(remainingIds[mqIndex]);
+      }
     });
 
     setDailyDoubles(dds);
@@ -194,6 +161,12 @@ const App = () => {
     setGameState('playing');
     setActivePlayerIndex(0);
     setAnsweredQuestions([]);
+  };
+
+  const toggleCategory = (id) => {
+    setSelectedCategories(prev =>
+      prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
+    );
   };
 
   // Timer Effect
@@ -328,7 +301,7 @@ const App = () => {
 
     setActivePlayerIndex((activePlayerIndex + 1) % players.length);
 
-    if (answeredQuestions.length + 1 === CATEGORIES.length * 5) {
+    if (answeredQuestions.length + 1 === gameCategories.length * 5) {
       setGameState('gameover');
     }
   };
@@ -394,6 +367,21 @@ const App = () => {
             ))}
           </div>
 
+          <div className="mb-8 relative z-10">
+            <h3 className="text-lg font-bold mb-4 text-center">دسته‌بندی‌های سوالات ({selectedCategories.length} انتخاب شده)</h3>
+            <div className="flex flex-wrap gap-2 justify-center max-h-48 overflow-y-auto p-2 pb-4 scrollbar-thin scrollbar-thumb-blue-600">
+              {ALL_CATEGORIES.map(cat => (
+                <button
+                  key={cat.id}
+                  onClick={() => toggleCategory(cat.id)}
+                  className={`px-3 py-2 rounded-xl text-sm font-bold transition-all border ${selectedCategories.includes(cat.id) ? 'bg-blue-600 border-blue-500 text-white shadow-md' : 'bg-slate-800 border-slate-700 text-slate-400 hover:bg-slate-700'}`}
+                >
+                  {cat.title}
+                </button>
+              ))}
+            </div>
+          </div>
+
           <button
             onClick={startGame}
             className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 py-4 rounded-xl font-bold text-xl transition-all shadow-lg shadow-blue-600/30 flex justify-center items-center gap-2 relative z-10"
@@ -429,8 +417,8 @@ const App = () => {
             <div
               key={p.id}
               className={`px-4 py-3 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center justify-center min-w-[100px] relative ${activePlayerIndex === idx
-                  ? 'bg-blue-600/20 border-blue-500 scale-105 shadow-lg shadow-blue-500/20'
-                  : 'bg-slate-800 border-slate-700 opacity-70'
+                ? 'bg-blue-600/20 border-blue-500 scale-105 shadow-lg shadow-blue-500/20'
+                : 'bg-slate-800 border-slate-700 opacity-70'
                 }`}
             >
               {/* Flame Icon for Winning Streak */}
@@ -450,9 +438,9 @@ const App = () => {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        {CATEGORIES.map(cat => (
-          <div key={cat.id} className="flex flex-col gap-3">
+      <main className="max-w-7xl mx-auto flex flex-wrap justify-center gap-3">
+        {gameCategories.map(cat => (
+          <div key={cat.id} className="flex flex-col gap-3 flex-1 min-w-[140px] max-w-[200px]">
             <div className="bg-slate-800 p-4 rounded-xl border border-slate-700 text-center shadow-md flex items-center justify-center h-16">
               <h2 className="font-bold text-sm md:text-base text-blue-300 line-clamp-2">{cat.title}</h2>
             </div>
@@ -462,8 +450,8 @@ const App = () => {
                 onClick={() => handleQuestionClick(cat.title, q)}
                 disabled={answeredQuestions.includes(q.id)}
                 className={`h-20 sm:h-24 rounded-xl text-2xl font-black transition-all transform hover:scale-105 active:scale-95 flex items-center justify-center border-b-4 ${answeredQuestions.includes(q.id)
-                    ? 'bg-slate-800/50 border-transparent text-slate-700 cursor-not-allowed'
-                    : 'bg-blue-700 hover:bg-blue-600 border-blue-900 text-yellow-400 shadow-lg'
+                  ? 'bg-slate-800/50 border-transparent text-slate-700 cursor-not-allowed'
+                  : 'bg-blue-700 hover:bg-blue-600 border-blue-900 text-yellow-400 shadow-lg'
                   }`}
               >
                 {answeredQuestions.includes(q.id) ? '' : q.value}
